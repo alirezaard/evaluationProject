@@ -81,6 +81,7 @@ class MyHtmlFormatter extends Formatter {
                 + "</style>\n"
                 + "</head>\n"
                 + "<body>\n"
+                +"<font size=\"7\">Gamelectronics Application Log</font>"
                 + "<h1>" + (new Date()) + "</h1>\n"
                 + "<table border=\"0\" cellpadding=\"5\" cellspacing=\"3\">\n"
                 + "<tr align=\"left\">\n"

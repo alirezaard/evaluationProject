@@ -1,8 +1,9 @@
 package com.gamelectronics.evaluateProject.utils;
 
+import com.gamelectronics.evaluateProject.domain.dtos.ExceptionDto;
+
 public class RestResponse<T> {
 
-    private int code;
     private String message;
     private T content;
 
@@ -17,25 +18,15 @@ public class RestResponse<T> {
     public static <T> RestResponse<T> ok(T content) {
         RestResponse<T> response = new RestResponse<>();
         response.content = content;
-        response.code = 0;
-        response.message = "OK";
-        return response;
-    }
-
-    public static RestResponse error(int code, String message, Object content) {
-        RestResponse response = new RestResponse<>();
-        response.content = content;
-        response.code = code;
-        response.message = message;
+        if (content instanceof ExceptionDto)
+            response.message = "ERROR";
+        else
+            response.message = "OK";
         return response;
     }
 
     public T getContent() {
         return content;
-    }
-
-    public int getCode() {
-        return code;
     }
 
     public String getMessage() {
