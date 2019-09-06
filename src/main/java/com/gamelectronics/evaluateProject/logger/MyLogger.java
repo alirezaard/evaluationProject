@@ -3,11 +3,11 @@ package com.gamelectronics.evaluateProject.logger;
 import java.io.IOException;
 import java.util.logging.*;
 
-public class MyLogger {
+class MyLogger {
     static private FileHandler fileHTML;
-    static private Formatter formatterHTML;
 
-    static public Logger loggerRegister() {
+    static Logger loggerRegister() {
+        Formatter formatterHTML;
 
         Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
@@ -21,7 +21,7 @@ public class MyLogger {
         try {
             fileHTML = new FileHandler("evaluationProject_log.html");
         } catch (IOException exp) {
-            System.out.println(exp);
+            System.out.println(exp.getMessage());
         }
 
         formatterHTML = new MyHtmlFormatter();
